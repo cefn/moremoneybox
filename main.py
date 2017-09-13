@@ -4,7 +4,7 @@ import mcp
 
 io = mcp.MCP23017()
 # monitors and prints some input pins
-inPins = [8,9,0,1,2,3,4,5,6,7]
+inPins = list(range(7,2, -1)) + list(range(8,13))
 for pinNum in inPins:
     io.setup(pinNum, mcp.IN)
 
@@ -27,4 +27,4 @@ while True:
             print("{} inserted".format(firstCovered))
             if slotTriggered in player.tracks:
                 print("{} playing".format(firstCovered))
-                player.playFolder(slotTriggered)
+                player.playNext(slotTriggered)
